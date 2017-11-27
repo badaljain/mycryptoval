@@ -4,6 +4,7 @@ import { getPriceByCryptoList } from 'components/crypto/cryptoActions'
 import { connect } from 'react-redux'
 import MiniSwitch from 'components/common/miniSwitch'
 import CryptoTable from './cryptoTable'
+import ActionBar from 'components/common/ActionBar'
 
 class Portfolio extends Component {
     constructor (props) {
@@ -12,7 +13,8 @@ class Portfolio extends Component {
             autoRefresh: true,
             loadRetry : 3,
             totalUsd: 0,
-            totalBTC: 0
+            totalBTC: 0,
+            title: 'Breakdown'
         }
     }
 
@@ -76,11 +78,13 @@ class Portfolio extends Component {
     }
 
     render () {
-        const { totalUSD, cryptoList, totalBTC } = this.state
+        const { totalUSD, cryptoList, totalBTC, title } = this.state
         return (
             <div className='container'>
+                <ActionBar title={title}>
+                    <MiniSwitch handleSwitch={this.handleSwitch} />
+                </ActionBar>
                 <p> ${totalUSD}/ {totalBTC} (BTC) </p>
-                <MiniSwitch handleSwitch={this.handleSwitch} />
                 <CryptoTable portfolio={cryptoList} />
             </div>
         )

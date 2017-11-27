@@ -18,7 +18,8 @@ const CryptoTable = (props) => {
         <BootstrapTable data={props.portfolio} striped hover>
             <TableHeaderColumn dataField="symbol" isKey dataAlign="center" dataSort>Crypto</TableHeaderColumn>
             <TableHeaderColumn dataField="qty" dataAlign="center" dataSort>Quantity</TableHeaderColumn>
-            <TableHeaderColumn dataField="price" dataAlign="center" dataSort>Price</TableHeaderColumn>
+            <TableHeaderColumn dataField="price" dataAlign="center" dataSort dataFormat={priceFormatter}>Value (USD)</TableHeaderColumn>
+            <TableHeaderColumn dataField="priceBTC" dataAlign="center" dataSort>Value (BTC)</TableHeaderColumn>
         </BootstrapTable>
     )
 }

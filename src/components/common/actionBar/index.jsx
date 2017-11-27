@@ -5,6 +5,7 @@ const ActionBar = (props) => {
         <div>
             <span> { props.title } </span>
             { props.children }
+            <div className='clearfix' />
             <hr />
         </div>
     )
